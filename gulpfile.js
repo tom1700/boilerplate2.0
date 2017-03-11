@@ -30,14 +30,14 @@ gulp.task("babel", function () {
   return gulp.src(paths.es6)
     .pipe(plumber())
     .pipe(babel({presets: ['es2015']}))
-    .pipe(gulp.dest("public/javascript"));
+    .pipe(gulp.dest("public/js"));
 });
 
 gulp.task('watch', ['browserSync', 'sass', 'babel'], function (){
   gulp.watch(paths.sass, ['sass']);
 	gulp.watch(paths.es6, ['babel']);
 	gulp.watch('public/*.html', browserSync.reload); 
-  gulp.watch('public/javascript/**/*.js', browserSync.reload);  
+  gulp.watch('public/js/**/*.js', browserSync.reload);  
 });
 
 
